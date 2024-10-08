@@ -85,7 +85,7 @@ async def task(output_dir: str):
 
         # Append new node links to the to-be-processed list if they haven't been visited
         for link in node_links:
-            if link not in visited_links:
+            if link not in visited_links and link not in to_be_processed_links:
                 to_be_processed_links.append(link)
 
         # Persist the lists again after adding the new links
@@ -94,11 +94,10 @@ async def task(output_dir: str):
         for url in leaf_links:
             urls.add(url)
 
-        save_to_file(file_links, list(urls))
-        logging.info("collected links: %d", len(file_links))
+        save_to_file(file_links, sorted(list(urls)))
+        logging.info("collected links: %d", len(urls))
         logging.info("processed pages: %d", len(visited_links))
-        logging.info("remainging pages: %d", len(to_be_processed_links))
-        
+        logging.info("remaining pages: %d", len(to_be_processed_links))
 
 
 def main():
