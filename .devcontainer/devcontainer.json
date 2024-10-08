@@ -1,0 +1,32 @@
+{
+    "name": "Python 3",
+    "dockerFile": "Dockerfile",
+    "features": {
+      "ghcr.io/deep-space-cartel/devcontainers-features/starship:latest": {
+          "version": "latest"
+      }
+    },
+    "customizations": {
+      "codespaces": {
+        "openFiles": [
+          "README.md"
+        ]
+      },
+      "vscode": {
+        "settings": {},
+        "extensions": [
+            "ms-python.python",
+            "ms-python.vscode-pylance",
+            "zeshuaro.vscode-python-poetry",
+            "ms-toolsai.jupyter",
+            "mechatroner.rainbow-csv"
+        ]
+      }
+    },
+    //"onCreateCommand": "pipx ensurepath; pipx install poetry; poetry init",
+    //"updateContentCommand": "poetry update; echo '✅ Packages installed and Requirements met'",
+    "postCreateCommand": "sudo chown -R vscode:vscode /workspaces/${workspace}",
+    "postStartCommand": "echo 'eval \"$(starship init bash)\"\neval \"$(direnv hook bash)\"' >> ~/.bashrc",
+    "remoteUser": "vscode"
+  }
+  

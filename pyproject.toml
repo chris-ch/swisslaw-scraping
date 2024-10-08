@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "lawsummarizer"
+version = "0.1.0"
+description = ""
+authors = ["Frédéric <Fcelerse@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+packages = [
+    {include = "**/*.py", from="src"},
+    {include = "**/*.py", from="scripts"},
+]
+
+include = [
+    { path = "resources/**/*", format = "sdist" },
+    { path = "resources/**/*", format = "wheel" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+selenium = "^4.25.0"
+playwright = "^1.47.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+beautifulsoup4 = "^4.12.3"
+requests = "^2.32.3"
+
+
+[tool.poetry.group.summarizer.dependencies]
+unsloth = {git = "https://github.com/unslothai/unsloth.git"}
+transformers = "^4.45.2"
+
+
+[tool.poetry.scripts]
+scrape-links = "scripts.scrape-links:main"
