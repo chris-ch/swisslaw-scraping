@@ -4,6 +4,7 @@ RUN apt update && apt upgrade -y
 
 RUN apt install -y \
     direnv \
+    xauth \
     pipx
 
 ARG USERNAME=vscode
