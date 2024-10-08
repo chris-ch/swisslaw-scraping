@@ -4,52 +4,7 @@ RUN apt update && apt upgrade -y
 
 RUN apt install -y \
     direnv \
-    pipx \
-    libdbus-1-3 \
-    libatk1.0-0 \
-    libatk-bridge2.0-0 \
-    libcups2 \
-    libdrm2 \
-    libxkbcommon0 \
-    libatspi2.0-0 \
-    libxcomposite1 \
-    libxdamage1 \
-    libxfixes3 \
-    libxrandr2 \
-    libgbm1 \
-    libpango-1.0-0 \
-    libcairo2 \
-    libx11-xcb1 \
-    libgtk-3-0 \
-    libxcursor1 \
-    libgdk-pixbuf2.0-0 \
-    libpangocairo-1.0-0 \
-    libcairo-gobject2 \
-    libatk-bridge2.0-0 \
-    libxcomposite1 \
-    libxdamage1 \
-    libxrandr2 \
-    libgbm1 \
-    libpango-1.0-0 \
-    libatspi2.0-0 \
-    libnspr4 \
-    libnss3 \
-    libasound2 \
-    libgstreamer1.0-0 \
-    libgstreamer-plugins-base1.0-0 \
-    libgstreamer-plugins-good1.0-0 \
-    libwoff1 \
-    libvpx7 \
-    libopus0 \
-    libharfbuzz-icu0 \
-    libenchant-2-2 \
-    libsecret-1-0 \
-    libhyphen0 \
-    libmanette-0.2-0 \
-    libflite1 \
-    libflite1-dev \
-    libgles2-mesa \
-    libx264-160
+    pipx
 
 ARG USERNAME=vscode
 ARG USER_UID=1000
