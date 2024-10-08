@@ -19,14 +19,14 @@
             "ms-python.vscode-pylance",
             "zeshuaro.vscode-python-poetry",
             "ms-toolsai.jupyter",
-            "mechatroner.rainbow-csv"
+            "mechatroner.rainbow-csv",
+            "ms-azuretools.vscode-docker"
         ]
       }
     },
-    //"onCreateCommand": "pipx ensurepath; pipx install poetry; poetry init",
-    //"updateContentCommand": "poetry update; echo '✅ Packages installed and Requirements met'",
-    "postCreateCommand": "sudo chown -R vscode:vscode /workspaces/${workspace}",
+    "postCreateCommand": "sudo chown -R vscode:vscode ${containerWorkspaceFolder}; if [ ! -f ${containerWorkspaceFolder}/pyproject.toml ]; then poetry init --no-interaction; fi",
     "postStartCommand": "echo 'eval \"$(starship init bash)\"\neval \"$(direnv hook bash)\"' >> ~/.bashrc",
+    "postAttachCommand": "poetry update; echo '✅ Packages installed and Requirements met'",
     "remoteUser": "vscode"
   }
   

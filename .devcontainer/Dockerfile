@@ -41,5 +41,8 @@ RUN mkdir -p /home/$USERNAME/.vscode-server /home/$USERNAME/.vscode-server-insid
 # Switch to non-root user
 USER $USERNAME
 
+RUN pipx ensurepath
+RUN pipx install poetry
+
 # Set the working directory to the user's home
 WORKDIR /home/$USERNAME
