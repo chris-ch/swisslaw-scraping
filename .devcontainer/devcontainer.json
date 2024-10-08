@@ -24,9 +24,9 @@
         ]
       }
     },
-    "postCreateCommand": "sudo chown -R vscode:vscode ${containerWorkspaceFolder}; if [ ! -f ${containerWorkspaceFolder}/pyproject.toml ]; then poetry init --no-interaction; fi",
+    "postCreateCommand": "sudo chown -R vscode:vscode ${containerWorkspaceFolder}; if [ ! -f ${containerWorkspaceFolder}/pyproject.toml ]; then poetry init --no-interaction; fi; poetry install; poetry run playwright install",
     "postStartCommand": "echo 'eval \"$(starship init bash)\"\neval \"$(direnv hook bash)\"' >> ~/.bashrc",
-    "postAttachCommand": "poetry update; echo '✅ Packages installed and Requirements met'",
+    "postAttachCommand": "poetry update; poetry shell echo '✅ Packages installed and Requirements met'",
     "remoteUser": "vscode"
   }
   

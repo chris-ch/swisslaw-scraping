@@ -36,3 +36,4 @@ transformers = "^4.45.2"
 
 [tool.poetry.scripts]
 scrape-links = "scripts.scrape-links:main"
+playwright = "playwright.__main__:main"
