@@ -89,7 +89,7 @@ async def task(links_file: str, output_dir: Path):
         else:
             status = 200
             content = b'<?xml version="1.0" encoding="UTF-8"?><unavailable/>'
-            xml_file_path = target_path / "unavailble.xml"
+            xml_file_path = target_path / "unavailable.xml"
         
         if status == 200:
             target_path.mkdir(parents=True, exist_ok=True)

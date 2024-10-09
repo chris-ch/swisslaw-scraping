@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0"
+    xmlns:fedlex="http://fedlex.admin.ch/">
+    <act name="publicLaw">
+        <meta>
+            <identification source="#ch.bk">
+                <FRBRWork>
+                    <FRBRthis value="https://fedlex.data.admin.ch/eli/cc/2015/799/20151118/main-text"/>
+                    <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/2015/799/20151118"/>
+                    <FRBRdate date="2015-11-18" name="jolux:dateApplicability"/>
+                    <FRBRdate date="2015-11-18" name="jolux:dateEntryInForce"/>
+                    <FRBRdate date="2014-06-28" name="jolux:dateDocument"/>
+                    <FRBRauthor href="#ch.bk" as="#publisher"/>
+                    <FRBRauthor href="#ch.bk" as="#rightsHolder"/>
+                    <FRBRcountry value="CH"/>
+                    <FRBRnumber value="232.221"/>
+                    <FRBRname xml:lang="fr" value="Règlement du 18 novembre 2015 sur l'usage et la protection de l'emblème et du nom de la Croix-Rouge (Règlement sur l'emblème de la Croix-Rouge)" shortForm=""/>
+                    <FRBRname xml:lang="de" value="Reglement vom 18. November 2015 betreffend die Verwendung und den Schutz des Zeichens und des Namens des Roten Kreuzes (Rotkreuzreglement)" shortForm=""/>
+                    <FRBRname xml:lang="it" value="Regolamento del 18 novembre 2015 concernente l'uso e la protezione dell'emblema e del nome della Croce Rossa (Regolamento sull'emblema della Croce Rossa)" shortForm=""/>
+                    <FRBRauthoritative value="true"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="https://fedlex.data.admin.ch/eli/cc/2015/799/20151118/fr/main-text"/>
+                    <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/2015/799/20151118/fr"/>
+                    <FRBRdate date="2015-11-18" name="jolux:dateApplicability"/>
+                    <FRBRdate date="2015-11-18" name="jolux:dateEntryInForce"/>
+                    <FRBRdate date="2014-06-28" name="jolux:dateDocument"/>
+                    <FRBRauthor href="#ch.bk" as="#publisher"/>
+                    <FRBRauthor href="#ch.bk" as="#rightsHolder"/>
+                    <FRBRlanguage language="fr"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="https://fedlex.data.admin.ch/eli/cc/2015/799/20151118/fr/xml/main-text"/>
+                    <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/2015/799/20151118/fr/xml"/>
+                    <FRBRdate date="2015-11-18" name="jolux:dateApplicability"/>
+                    <FRBRdate date="2015-11-18" name="jolux:dateEntryInForce"/>
+                    <FRBRdate date="2014-06-28" name="jolux:dateDocument"/>
+                    <FRBRauthor href="#ch.bk" as="#publisher"/>
+                    <FRBRauthor href="#ch.bk" as="#rightsHolder"/>
+                    <FRBRformat value="xml" fedlex:generator="2024-q3-rel-1.5.19"/>
+                </FRBRManifestation>
+            </identification>
+            <references source="#ch.bk">
+                <TLCOrganization eId="ch.bk" href="https://fedlex.data.admin.ch/vocabulary/legal-institution/2" showAs="Chancellerie fédérale"/>
+                <TLCRole eId="publisher" href="http://data.legilux.public.lu/resource/ontology/jolux#publisher" showAs="Editeur"/>
+                <TLCRole eId="rightsHolder" href="http://data.legilux.public.lu/resource/ontology/jolux#rightsHolder" showAs="Détenteur des droits"/>
+                <TLCReference name="language" href="http://publications.europa.eu/resource/authority/language/FRA" showAs="fr"/>
+                <TLCReference name="format" href="https://fedlex.data.admin.ch/vocabulary/user-format/xml" showAs="xml"/>
+            </references>
+        </meta>
+        <preface>
+            <p>
+                <docNumber>232.221 </docNumber>
+            </p>
+            <p>
+                <docTitle>Règlement <br/>
+sur l’usage et la protection de l’emblème et du nom <br/>
+de la Croix-Rouge</docTitle>
+        </p>
+        <p>(Règlement sur l’emblème de la Croix-Rouge)</p>
+        <p>du 28 juin 2014 (État le 18 novembre 2015)</p>
+        <p>Approuvé par le Conseil fédéral le 18 novembre 2015</p>
+    </preface>
+    <preamble>
+        <p>L’Assemblée de la Croix-Rouge,</p>
+        <p>vu l’art. 4, al. 2, de la loi fédérale du 25 mars 1954 concernant la protection <br/>
+de l’emblème et du nom de la Croix-Rouge<authorialNote>
+        <p>
+            <ref href="https://fedlex.data.admin.ch/eli/cc/1954/1297_1327_1355"
+                xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RS <b>232.22</b>
+            </ref>
+        </p>
+    </authorialNote>,
+</p>
+<p>arrête:</p>
+</preamble>
+<body>
+<section eId="sec_1">
+    <num>Section 1</num>
+    <heading>Définition et objet</heading>
+    <article eId="art_1">
+        <num>
+            <b>Art. 1</b>
+        </num>
+        <heading>Emblème et nom de la Croix-Rouge</heading>
+        <paragraph eId="art_1/para_1">
+            <num>1</num>
+            <content>
+                <p> L’emblème de la croix rouge sur fond blanc est le signe distinctif du Mouvement international de la Croix-Rouge et du Croissant-Rouge (Mouvement) en Suisse. Il signale la volonté de prévenir et d’alléger les souffrances humaines ainsi que de protéger la santé, la vie et la dignité des personnes en Suisse et à l’étranger, en toute neutralité et impartialité.</p>
+            </content>
+        </paragraph>
+        <paragraph eId="art_1/para_2">
+            <num>2</num>
+            <content>
+                <p> L’emblème de la croix rouge sur fond blanc peut être employé de deux manières. Utilisé à titre protecteur dans le cadre d’un conflit armé, il désigne les personnes et les biens placés sous la protection spéciale des Conventions de Genève du 12 août 1949<authorialNote>
+                    <p> Convention de Genève du 12 août 1949 pour l’amélioration du sort des blessés et des  malades dans les forces armées en campagne (<ref href="https://fedlex.data.admin.ch/eli/cc/1951/181_184_180"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RS <b>0.518.12</b>
+                    </ref>); Convention de Genève du 12 août 1949 pour l’amélioration du sort des blessés, des malades et des naufragés des forces armées sur mer (<ref href="https://fedlex.data.admin.ch/eli/cc/1951/207_209_205"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RS <b>0.518.23</b>
+                </ref>); Convention de Genève du 12 août 1949 relative à la protection des personnes civiles en temps de guerre (<ref href="https://fedlex.data.admin.ch/eli/cc/1951/300_302_297"
+                xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RS <b>0.518.51</b>
+            </ref>).
+        </p>
+    </authorialNote> et de leurs protocoles additionnels<authorialNote>
+    <p> Protocole additionnel du 8 juin 1977 aux Conventions de Genève du 12 août 1949 relatif à la protection des victimes des conflits armés internationaux (Protocole I; <ref href="https://fedlex.data.admin.ch/eli/cc/1982/1362_1362_1362"
+        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RS <b>0.518.521</b>
+    </ref>); Protocole additionnel du 8 juin 1977 aux Conventions de Genève du 12 août 1949 relatif à la protection des victimes des conflits armés non internationaux (Protocole II; <ref href="https://fedlex.data.admin.ch/eli/cc/1982/1432_1432_1432"
+    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RS <b>0.518.522</b>
+</ref>); Protocole additionnel du 8 déc. 2005 aux Conventions de Genève du 12 août 1949 relatif à l’adoption d’un signe distinctif additionnel (Protocole III; <ref href="https://fedlex.data.admin.ch/eli/cc/2007/38"
+xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RS <b>0.518.523</b>
+</ref>).
+</p>
+</authorialNote>. Utilisé à titre indicatif, il signale que les personnes et les biens ont un lien avec le Mouvement.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_2">
+<num>
+<b>Art. 2</b>
+</num>
+<heading>Objet</heading>
+<paragraph eId="art_2/para_1">
+<num>1</num>
+<content>
+<blockList>
+<listIntroduction eId="art_2/para_1/listintro"> Le présent règlement régit:</listIntroduction>
+<item eId="art_2/para_1/lbl_a">
+<num>a. </num>
+<p>l’usage par la Croix-Rouge suisse (CRS) de l’emblème et du nom de la Croix-Rouge ainsi que de l’emblème du cristal rouge consacré par le Protocole additionnel du 8 décembre 2005<authorialNote>
+<p>
+<ref href="https://fedlex.data.admin.ch/eli/cc/2007/38"
+    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RS <b>0.518.523</b>
+</ref>
+</p>
+</authorialNote> aux Conventions de Genève du 12 août 1949 relatif à l’adoption d’un signe distinctif additionnel (Protocole III), en temps de guerre et en temps de paix, pour signaler son appartenance au Mouvement;</p>
+</item>
+<item eId="art_2/para_1/lbl_b">
+<num>b. </num>
+<p>l’usage et la conception graphique de l’emblème et du nom de la Croix-Rouge par les organisations de la CRS figurant dans les statuts de la CRS, notamment pour signifier leur appartenance à cette dernière;</p>
+</item>
+<item eId="art_2/para_1/lbl_c">
+<num>c. </num>
+<p>l’autorisation donnée à des tiers d’utiliser l’emblème de la Croix-Rouge pour signaler les postes de premiers secours et les ambulances.</p>
+</item>
+</blockList>
+</content>
+</paragraph>
+<paragraph eId="art_2/para_2">
+<num>2</num>
+<content>
+<p> L’usage de l’emblème de la Croix-Rouge comme emblème protecteur par le service sanitaire de l’armée, y compris le Service de la Croix-Rouge, et par les hôpitaux civils, pour signaler des zones et unités sanitaires ainsi que des transports sanitaires et de sauvetage, est régi par l’art. 4, al. 1, de la loi fédérale du 25 mars 1954 concernant la protection de l’emblème et du nom de la Croix-Rouge et par l’ordonnance du 29 septembre 2006 sur le Service de la Croix-Rouge<authorialNote>
+<p>
+<ref href="https://fedlex.data.admin.ch/eli/cc/2006/620"
+xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RS <b>513.52</b>
+</ref>
+</p>
+</authorialNote>.
+</p>
+</content>
+</paragraph>
+</article>
+</section>
+<section eId="sec_2">
+<num>Section 2</num>
+<heading>Usage de l’emblème et du nom de la Croix-Rouge</heading>
+<article eId="art_3">
+<num>
+<b>Art. 3</b>
+</num>
+<heading>Dispositions générales</heading>
+<paragraph eId="art_3/para_1">
+<num>1</num>
+<content>
+<p> La CRS et les organisations de la CRS figurant dans les statuts de cette dernière utilisent l’emblème et le nom de la Croix-Rouge dans le cadre de leurs activités en temps de paix et en temps de guerre.</p>
+</content>
+</paragraph>
+<paragraph eId="art_3/para_2">
+<num>2</num>
+<content>
+<p> Elles veillent à ce que leurs activités soient conformes aux principes fondamentaux du Mouvement, à la loi fédérale concernant la protection de l’emblème et du nom de la Croix-Rouge, aux statuts de la CRS et au présent règlement.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_4">
+<num>
+<b>Art. 4</b>
+</num>
+<heading>Missions à l’étranger, envois de biens de secours</heading>
+<paragraph eId="art_4/para_1">
+<num>1</num>
+<content>
+<p> La CRS est autorisée à signaler, dans le cadre de missions humanitaires à l’étranger, les personnes et les biens au moyen de l’emblème et du nom de la Croix-Rouge. Elle y est également autorisée pour les envois de biens de secours depuis la Suisse destinés à l’étranger. D’éventuelles dispositions contraires du droit applicable dans le pays concerné sont réservées.</p>
+</content>
+</paragraph>
+<paragraph eId="art_4/para_2">
+<num>2</num>
+<content>
+<p> Si la sécurité du personnel et des biens de secours l’exige, la CRS peut  utiliser à titre temporaire l’emblème du cristal rouge dans le cadre de missions humanitaires à l’étranger. La décision de recourir au cristal rouge en lieu et place de la croix rouge lors d’interventions à l’étranger et d’envoi de biens de secours est du ressort du directeur de la CRS. D’éventuelles dispositions contraires du droit applicable dans le pays concerné sont réservées.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_5">
+<num>
+<b>Art. 5</b>
+</num>
+<heading>Services de secours</heading>
+<paragraph eId="art_5/para">
+<content>
+<p>A titre exceptionnel, la CRS peut explicitement autoriser des tiers à utiliser l’emblème de la croix rouge sur fond blanc en temps de paix pour signaler des services de secours tels que des postes de premiers secours et des ambulances, à condition que ceux-ci servent à sauver, transporter ou soigner des blessés et des malades gratuitement.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_6">
+<num>
+<b>Art. 6</b>
+</num>
+<heading>Diffusion, levée de fonds, aspects relationnels</heading>
+<paragraph eId="art_6/para_1">
+<num>1</num>
+<content>
+<p> L’utilisation commerciale de l’emblème de la Croix-Rouge en tant qu’élément graphique ou verbal, à des fins de publicité, de levée de fonds ou de sponsoring et, plus généralement, de diffusion sous une forme imprimée, numérique ou autre ne doit pas créer un risque de confusion avec l’emblème protecteur. Tout usage commercial de la croix rouge requiert l’autorisation explicite de la CRS.</p>
+</content>
+</paragraph>
+<paragraph eId="art_6/para_2">
+<num>2</num>
+<content>
+<p> Les organisations de la CRS veillent auprès de leurs sous-organisations à un usage correct de l’emblème et du nom de la Croix-Rouge.</p>
+</content>
+</paragraph>
+<paragraph eId="art_6/para_3">
+<num>3</num>
+<content>
+<p> La CRS définit ses standards relatifs à l’usage commercial dans ses lignes directrices et les communique aux utilisateurs.</p>
+</content>
+</paragraph>
+<paragraph eId="art_6/para_4">
+<num>4</num>
+<content>
+<p> L’emblème de la Croix-Rouge peut être apposé sur ses propres produits tels que des badges, prix, décorations, médailles ou insignes remis à des groupes d’intérêt de la CRS comme des bénévoles, des collaborateurs, des clients ou des participants à des cours en signe de reconnaissance pour leur engagement.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_7">
+<num>
+<b>Art. 7</b>
+</num>
+<heading>Lutte contre les abus</heading>
+<paragraph eId="art_7/para_1">
+<num>1</num>
+<content>
+<p> La CRS veille à l’usage correct de l’emblème et du nom de la Croix-Rouge et s’engage en faveur du respect des dispositions du présent règlement.</p>
+</content>
+</paragraph>
+<paragraph eId="art_7/para_2">
+<num>2</num>
+<content>
+<blockList>
+<listIntroduction eId="art_7/para_2/listintro"> En cas d’usage abusif de l’emblème et du nom de la Croix-Rouge ainsi que de signes ou de mots susceptibles d’être confondus avec ceux-ci, la CRS prend les mesures qui s’imposent, notamment:</listIntroduction>
+<item eId="art_7/para_2/lbl_a">
+<num>a. </num>
+<p>en dénonçant l’usage abusif par écrit et en impartissant un délai pour y remédier;</p>
+</item>
+<item eId="art_7/para_2/lbl_b">
+<num>b. </num>
+<p>en engageant une procédure civile ou pénale.</p>
+</item>
+</blockList>
+</content>
+</paragraph>
+</article>
+</section>
+<section eId="sec_3">
+<num>Section 3</num>
+<heading>Conception graphique de la croix rouge</heading>
+<article eId="art_8">
+<num>
+<b>Art. 8</b>
+</num>
+<heading>Uniformité de l’identité visuelle</heading>
+<paragraph eId="art_8/para">
+<content>
+<p>L’emblème de la Croix-Rouge est la principale composante et un élément permanent de l’identité visuelle de la CRS. Les organisations de la CRS veillent à en faire un usage uniforme et correct.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_9">
+<num>
+<b>Art. 9</b>
+</num>
+<heading>Conception graphique</heading>
+<paragraph eId="art_9/para_1">
+<num>1</num>
+<content>
+<p> L’emblème de la Croix-Rouge est composé d’une croix de couleur rouge, verticale et alésée, placée sur un fond blanc. La croix ne touche pas les bords de l’emblème. Le fond est toujours blanc. Aucune inscription n’est admise sur la croix. Celle-ci doit être l’élément dominant de l’emblème; des éléments supplémentaires sont exclus La CRS définit ses standards relatifs à la conception graphique dans ses lignes directrices et les communique aux utilisateurs.</p>
+</content>
+</paragraph>
+<paragraph eId="art_9/para_2">
+<num>2</num>
+<content>
+<p> Le logo de la CRS se compose de l’emblème de la Croix-Rouge sur un fond blanc accompagné du nom «Croix-Rouge suisse» ou des initiales «CRS». Ce nom et ces initiales peuvent figurer dans d’autres langues.</p>
+</content>
+</paragraph>
+<paragraph eId="art_9/para_3">
+<num>3</num>
+<content>
+<p> La conception graphique de l’emblème et du nom de la Croix-Rouge par des organisations de la CRS figurant nommément dans les statuts de cette dernière est régie par la présente section.</p>
+</content>
+</paragraph>
+</article>
+</section>
+<section eId="sec_4">
+<num>Section 4</num>
+<heading>Dispositions finales</heading>
+<article eId="art_10">
+<num>
+<b>Art. 10</b>
+</num>
+<heading>Abrogation d’un autre acte</heading>
+<paragraph eId="art_10/para">
+<content>
+<p>Le règlement de la CRS du 10 juin 1966 concernant l’usage de l’emblème et du nom de la Croix-Rouge est abrogé.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_11">
+<num>
+<b>Art. 11</b>
+</num>
+<heading>Entrée en vigueur</heading>
+<paragraph eId="art_11/para">
+<content>
+<p>Le présent règlement entre en vigueur le 18 novembre 2015.</p>
+</content>
+</paragraph>
+</article>
+</section>
+</body>
+</act>
+</akomaNtoso>
