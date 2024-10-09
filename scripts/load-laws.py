@@ -1,6 +1,5 @@
 import logging
 import json
-import os
 import asyncio
 from typing import Optional
 from playwright.async_api import async_playwright
@@ -21,15 +20,28 @@ def load_from_file(file_path: str):
 
 async def extract_xml_url(page_url: str) -> Optional[str]:
     async with async_playwright() as p:
-        # Launch browser
-        browser = await p.chromium.launch(headless=True)  # Set headless=False if you want to see the browser
-        page = await browser.new_page()
+        logging.info("launching browser")
+        browser = await p.chromium.launch(headless=True)
+        try:
+            page = await asyncio.wait_for(browser.new_page(), timeout=10)
+        except asyncio.TimeoutError:
+            logging.error("browser failed to start, retrying...")
+            try:
+                page = await asyncio.wait_for(browser.new_page(), timeout=10)
+            except asyncio.TimeoutError:
+                logging.error("second attempt to start browser failed")
+                await browser.close()
+                logging.exception("second attempt to start browser failed")
+                raise ConnectionAbortedError("second attempt to start browser failed")
+        
+        logging.info("browser started")
 
         # Open the page
         await page.goto(page_url)
 
         # Wait for the table to be available in the DOM
         await page.wait_for_selector('#versionContent')
+        logging.info("page loaded")
 
         # Find the table row that contains the circle with the soft-green class
         row = await page.query_selector('table#versionContent tr:has(td > span.circle.soft-green)')
@@ -47,7 +59,6 @@ async def extract_xml_url(page_url: str) -> Optional[str]:
             logging.error("no row with 'soft-green' circle found")
             xml_url = None
 
-        # Close browser
         await browser.close()
     return xml_url
 
