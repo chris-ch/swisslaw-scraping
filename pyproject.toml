@@ -30,6 +30,7 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.poetry.scripts]
-scrape-links = "scripts.scrape-links:main"
-load-laws = "scripts.load-laws:main"
+scrape-links = "scripts.scrape_links:main"
+load-laws = "scripts.load_laws:main"
+prepare-document = "scripts.prepare_document:main"
 playwright = "playwright.__main__:main"

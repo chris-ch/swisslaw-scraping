@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<akomaNtoso xmlns="http://docs.oasis-open.org/legaldocml/ns/akn/3.0"
+    xmlns:fedlex="http://fedlex.admin.ch/">
+    <act name="publicLaw">
+        <meta>
+            <identification source="#ch.bk">
+                <FRBRWork>
+                    <FRBRthis value="https://fedlex.data.admin.ch/eli/cc/2007/178/20120101/main-text"/>
+                    <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/2007/178/20120101"/>
+                    <FRBRdate date="2007-03-01" name="jolux:dateDocument"/>
+                    <FRBRdate date="2007-04-01" name="jolux:dateEntryInForce"/>
+                    <FRBRdate date="2012-01-01" name="jolux:dateApplicability"/>
+                    <FRBRauthor href="#ch.bk" as="#publisher"/>
+                    <FRBRauthor href="#ch.bk" as="#rightsHolder"/>
+                    <FRBRcountry value="CH"/>
+                    <FRBRnumber value="784.409"/>
+                    <FRBRname xml:lang="de" value="Geschäftsreglement vom 1. März 2007 der Unabhängigen Beschwerdeinstanz für Radio und Fernsehen (Geschäftsreglement UBI)" shortForm=""/>
+                    <FRBRname xml:lang="fr" value="Règlement du 1&lt;sup&gt;er&lt;/sup&gt; mars 2007 de l'autorité indépendante d'examen des plaintes en matière de radio-télévision (AIEP) (Règlement de l'AIEP)" shortForm=""/>
+                    <FRBRname xml:lang="it" value="Regolamento del 1° marzo 2007 dell'autorità indipendente di ricorso in materia radiotelevisiva (Regolamento AIRR)" shortForm=""/>
+                    <FRBRauthoritative value="true"/>
+                </FRBRWork>
+                <FRBRExpression>
+                    <FRBRthis value="https://fedlex.data.admin.ch/eli/cc/2007/178/20120101/fr/main-text"/>
+                    <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/2007/178/20120101/fr"/>
+                    <FRBRdate date="2007-03-01" name="jolux:dateDocument"/>
+                    <FRBRdate date="2007-04-01" name="jolux:dateEntryInForce"/>
+                    <FRBRdate date="2012-01-01" name="jolux:dateApplicability"/>
+                    <FRBRauthor href="#ch.bk" as="#publisher"/>
+                    <FRBRauthor href="#ch.bk" as="#rightsHolder"/>
+                    <FRBRlanguage language="fr"/>
+                </FRBRExpression>
+                <FRBRManifestation>
+                    <FRBRthis value="https://fedlex.data.admin.ch/eli/cc/2007/178/20120101/fr/xml/main-text"/>
+                    <FRBRuri value="https://fedlex.data.admin.ch/eli/cc/2007/178/20120101/fr/xml"/>
+                    <FRBRdate date="2007-03-01" name="jolux:dateDocument"/>
+                    <FRBRdate date="2007-04-01" name="jolux:dateEntryInForce"/>
+                    <FRBRdate date="2012-01-01" name="jolux:dateApplicability"/>
+                    <FRBRauthor href="#ch.bk" as="#publisher"/>
+                    <FRBRauthor href="#ch.bk" as="#rightsHolder"/>
+                    <FRBRformat value="xml" fedlex:generator="2024-q3-rel-1.5.19"/>
+                </FRBRManifestation>
+            </identification>
+            <references source="#ch.bk">
+                <TLCOrganization eId="ch.bk" href="https://fedlex.data.admin.ch/vocabulary/legal-institution/2" showAs="Chancellerie fédérale"/>
+                <TLCRole eId="publisher" href="http://data.legilux.public.lu/resource/ontology/jolux#publisher" showAs="Editeur"/>
+                <TLCRole eId="rightsHolder" href="http://data.legilux.public.lu/resource/ontology/jolux#rightsHolder" showAs="Détenteur des droits"/>
+                <TLCReference name="language" href="http://publications.europa.eu/resource/authority/language/FRA" showAs="fr"/>
+                <TLCReference name="format" href="https://fedlex.data.admin.ch/vocabulary/user-format/xml" showAs="xml"/>
+            </references>
+        </meta>
+        <preface>
+            <p>
+                <docNumber>784.409 </docNumber>
+            </p>
+            <p>
+                <docTitle>Règlement<br/>
+de l’autorité indépendante d’examen des plaintes en matière de radio-télévision (AIEP)</docTitle>
+            </p>
+            <p>(Règlement de l’AIEP)</p>
+            <p>du 1<sup>er</sup> mars 2007 (Etat le 1<sup>er</sup> janvier 2012) </p>
+            <p>approuvé par le Conseil fédéral le 16 mars 2007</p>
+        </preface>
+        <preamble>
+            <p>L’autorité indépendante d’examen des plaintes en matière de radio-télévision,</p>
+            <p>vu l’art. 85, al. 2, de la loi fédérale du 24 mars 2006 sur la radio et la télévision (LRTV)<authorialNote>
+                <p>
+                    <ref href="https://fedlex.data.admin.ch/eli/cc/2007/150"
+                        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RS <b>784.40</b>
+                    </ref>
+                </p>
+            </authorialNote>,
+        </p>
+        <p>arrête:</p>
+    </preamble>
+    <body>
+        <section eId="sec_1">
+            <num>Section 1</num>
+            <heading>Organisation</heading>
+            <article eId="art_1">
+                <num>
+                    <b>Art. 1</b>
+                </num>
+                <heading>Siège, vice-présidence et comités</heading>
+                <paragraph eId="art_1/para_1">
+                    <num>1</num>
+                    <content>
+                        <p> L’autorité indépendante d'examen des plaintes en matière de radio-télévision (AIEP) a son siège à Berne.</p>
+                    </content>
+                </paragraph>
+                <paragraph eId="art_1/para_2">
+                    <num>2</num>
+                    <content>
+                        <p> Elle désigne son vice-président.</p>
+                    </content>
+                </paragraph>
+                <paragraph eId="art_1/para_3">
+                    <num>3</num>
+                    <content>
+                        <p> Elle peut constituer des comités.</p>
+                    </content>
+                </paragraph>
+            </article>
+            <article eId="art_2">
+                <num>
+                    <b>Art. 2</b>
+                </num>
+                <heading>Président</heading>
+                <paragraph eId="art_2/para_1">
+                    <num>1</num>
+                    <content>
+                        <blockList>
+                            <listIntroduction eId="art_2/para_1/listintro"> Le président est chargé des tâches suivantes:</listIntroduction>
+                            <item eId="art_2/para_1/lbl_a">
+                                <num>a. </num>
+                                <p>il dirige les séances de l’AIEP;</p>
+                            </item>
+                            <item eId="art_2/para_1/lbl_b">
+                                <num>b. </num>
+                                <p>il surveille la gestion et l’administration du secrétariat;</p>
+                            </item>
+                            <item eId="art_2/para_1/lbl_c">
+                                <num>c. </num>
+                                <p>il est responsable des relations publiques ainsi que des contacts avec les autorités suisses ou étrangères;</p>
+                            </item>
+                            <item eId="art_2/para_1/lbl_d">
+                                <num>d. </num>
+                                <p>il assume les tâches mentionnées par le présent règlement.</p>
+                            </item>
+                        </blockList>
+                    </content>
+                </paragraph>
+                <paragraph eId="art_2/para_2">
+                    <num>2</num>
+                    <content>
+                        <p> En cas d’empêchement, il est remplacé par le vice-président.</p>
+                    </content>
+                </paragraph>
+            </article>
+            <article eId="art_3">
+                <num>
+                    <b>Art. 3</b>
+                </num>
+                <heading>Nomination du secrétariat</heading>
+                <paragraph eId="art_3/para_1">
+                    <num>1</num>
+                    <content>
+                        <p> Le responsable du secrétariat est désigné par le président après consultation des autres membres.</p>
+                    </content>
+                </paragraph>
+                <paragraph eId="art_3/para_2">
+                    <num>2</num>
+                    <content>
+                        <p> Le président et le responsable du secrétariat désignent les autres collaborateurs du secrétariat.</p>
+                    </content>
+                </paragraph>
+            </article>
+            <article eId="art_4">
+                <num>
+                    <b>Art. 4</b>
+                </num>
+                <heading>Tâches du secrétariat</heading>
+                <paragraph eId="art_4/para_1">
+                    <num>1</num>
+                    <content>
+                        <p> Le secrétariat assure le suivi des dossiers de l’AIEP tant du point de vue technique qu’administratif.</p>
+                    </content>
+                </paragraph>
+                <paragraph eId="art_4/para_2">
+                    <num>2</num>
+                    <content>
+                        <blockList>
+                            <listIntroduction eId="art_4/para_2/listintro"> Les tâches suivantes incombent notamment au secrétariat:</listIntroduction>
+                            <item eId="art_4/para_2/lbl_a">
+                                <num>a. </num>
+                                <p>instruire les procédures de plaintes;</p>
+                            </item>
+                            <item eId="art_4/para_2/lbl_b">
+                                <num>b. </num>
+                                <p>organiser les séances et tenir les procès-verbaux;</p>
+                            </item>
+                            <item eId="art_4/para_2/lbl_c">
+                                <num>c. </num>
+                                <p>rédiger l’exposé des motifs et notifier les décisions;</p>
+                            </item>
+                            <item eId="art_4/para_2/lbl_d">
+                                <num>d. </num>
+                                <p>établir le rapport d’activités;</p>
+                            </item>
+                            <item eId="art_4/para_2/lbl_e">
+                                <num>e. </num>
+                                <p>exercer la surveillance sur la gestion;</p>
+                            </item>
+                            <item eId="art_4/para_2/lbl_f">
+                                <num>f. </num>
+                                <p>gérer le site Internet;</p>
+                            </item>
+                            <item eId="art_4/para_2/lbl_g">
+                                <num>g. </num>
+                                <p>statuer, en accord avec le président, sur les demandes d’accès aux documents officiels en vertu des art. 10 ss de la loi fédérale du 17 décembre 2004 sur le principe de la transparence<authorialNote>
+                                    <p>
+                                        <ref href="https://fedlex.data.admin.ch/eli/cc/2006/355"
+                                            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                                            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RS <b>152.3</b>
+                                        </ref>
+                                    </p>
+                                </authorialNote>.
+                            </p>
+                        </item>
+                    </blockList>
+                </content>
+            </paragraph>
+            <paragraph eId="art_4/para_3">
+                <num>3</num>
+                <content>
+                    <p> Le secrétariat représente l’AIEP dans ses relations avec l’administration fédérale et gère les contacts avec le public.</p>
+                </content>
+            </paragraph>
+        </article>
+        <article eId="art_5">
+            <num>
+                <b>Art. 5</b>
+            </num>
+            <heading>Séances</heading>
+            <paragraph eId="art_5/para_1">
+                <num>1</num>
+                <content>
+                    <p> Le président convoque les participants aux séances, en accord avec le secrétariat. En règle générale, l’ordre du jour est communiqué deux semaines à l’avance.</p>
+                </content>
+            </paragraph>
+            <paragraph eId="art_5/para_2">
+                <num>2</num>
+                <content>
+                    <p> Les documents relatifs aux affaires à traiter sont en principe joints à la convocation.</p>
+                </content>
+            </paragraph>
+        </article>
+        <article eId="art_6">
+            <num>
+                <b>Art. 6</b>
+            </num>
+            <heading>Budget et comptabilité<authorialNote>
+                <p> Nouvelle teneur selon le ch. I de l’O de l’AIEP du 2 déc. 2011, approuvé par le CF le 9 déc. 2011 et en vigueur depuis le 1<sup xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">er </sup>janv. 2012 (<ref href="https://fedlex.data.admin.ch/eli/oc/2011/875"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RO <b>2011</b> 6249</ref>).
+            </p>
+        </authorialNote>
+    </heading>
+    <paragraph eId="art_6/para_1">
+        <num>1</num>
+        <content>
+            <p> L’AIEP établit son budget et le transmet au Secrétariat général du Département fédéral de l’environnement, des transports, de l’énergie et de la communication (DETEC). <authorialNote>
+                <p> Nouvelle teneur selon le ch. I de l’O de l’AIEP du 2 déc. 2011, approuvé par le CF le 9 déc. 2011 et en vigueur depuis le 1<sup xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">er </sup>janv. 2012 (<ref href="https://fedlex.data.admin.ch/eli/oc/2011/875"
+                    xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                    xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RO <b>2011</b> 6249</ref>).
+            </p>
+        </authorialNote>
+    </p>
+</content>
+</paragraph>
+<paragraph eId="art_6/para_2">
+<num>2</num>
+<content>
+    <p> La comptabilité de l’AIEP est tenue par le secrétariat général du Département fédéral de l’environnement, des transports, de l’énergie et de la communication.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_7">
+<num>
+<b>Art. 7</b>
+</num>
+<heading>Secret de fonction</heading>
+<paragraph eId="art_7/para">
+<content>
+    <p>Les membres de l’AIEP et le personnel du secrétariat sont tenus au secret de fonction.</p>
+</content>
+</paragraph>
+</article>
+</section>
+<section eId="sec_2">
+<num>Section 2</num>
+<heading>Procédure de plainte</heading>
+<article eId="art_8">
+<num>
+<b>Art. 8</b>
+</num>
+<heading>Répartition</heading>
+<paragraph eId="art_8/para_1">
+<num>1</num>
+<content>
+    <p> Le président désigne un rapporteur pour chaque plainte.</p>
+</content>
+</paragraph>
+<paragraph eId="art_8/para_2">
+<num>2</num>
+<content>
+    <p> Ce dernier est chargé d’établir un rapport et de faire une proposition.</p>
+</content>
+</paragraph>
+<paragraph eId="art_8/para_3">
+<num>3</num>
+<content>
+    <p> Le secrétariat peut être chargé de collaborer à l’établissement des rapports.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_9">
+<num>
+<b>Art. 9</b>
+</num>
+<heading>Récusation</heading>
+<paragraph eId="art_9/para">
+<content>
+    <p>Les membres informent l’AIEP d’éventuels motifs de récusation. Si la récusation est contestée, il appartient à l’AIEP de trancher en l’absence du membre concerné conformément à l’art. 10 de la loi fédérale du 20 décembre 1968 sur la procédure administrative (PA)<authorialNote>
+        <p>
+            <ref href="https://fedlex.data.admin.ch/eli/cc/1969/737_757_755"
+                xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+                xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RS <b>172.021</b>
+            </ref>
+        </p>
+    </authorialNote>.
+</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_10">
+<num>
+<b>Art. 10</b>
+</num>
+<heading>Experts</heading>
+<paragraph eId="art_10/para">
+<content>
+<p>L’AIEP peut engager des experts.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_11">
+<num>
+<b>Art. 11</b>
+</num>
+<heading>Délibération publique</heading>
+<paragraph eId="art_11/para_1">
+<num>1</num>
+<content>
+<p> L’AIEP décide si des intérêts privés dignes d’être protégés en vertu de l’art. 97, al. 1, LRTV s’opposent à la publicité des débats.</p>
+</content>
+</paragraph>
+<paragraph eId="art_11/para_2">
+<num>2</num>
+<content>
+<p> L’AIEP publie sur son site Internet, au moins dix jours avant la séance, les sujets qui seront l'objet d'une délibération publique.</p>
+</content>
+</paragraph>
+<paragraph eId="art_11/para_3">
+<num>3</num>
+<content>
+<p> Des places assises sont réservées aux représentants des médias et aux parties prenantes à la procédure.</p>
+</content>
+</paragraph>
+<paragraph eId="art_11/para_4">
+<num>4</num>
+<content>
+<p> Les prises de vues et de son ne sont pas autorisées. Le président peut toutefois prévoir des exceptions, d’entente avec les autres membres de l'AIEP.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_12">
+<num>
+<b>Art. 12</b>
+</num>
+<heading>Votes</heading>
+<paragraph eId="art_12/para_1">
+<num>1</num>
+<content>
+<p> Les délibérations de l’AIEP sont valables lorsque six membres au moins sont présents. Ses décisions sont prises à la majorité simple des membres présents. En cas d’égalité des voix, le président départage.</p>
+</content>
+</paragraph>
+<paragraph eId="art_12/para_2">
+<num>2</num>
+<content>
+<p> Les membres sont tenus de voter.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_13">
+<num>
+<b>Art. 13</b>
+</num>
+<heading>Avis divergent</heading>
+<paragraph eId="art_13/para_1">
+<num>1</num>
+<content>
+<p> Si trois membres au moins ont un avis divergent de celui de la majorité, ils peuvent le consigner par écrit. Le texte consigné doit être rédigé de manière succincte et se limiter aux points essentiels de l’exposé des motifs. Il est publié en annexe à la décision.</p>
+</content>
+</paragraph>
+<paragraph eId="art_13/para_2">
+<num>2</num>
+<content>
+<p> Le président peut fixer un délai à la rédaction d’avis divergents.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_14">
+<num>
+<b>Art. 14</b>
+</num>
+<heading>Exposé des motifs</heading>
+<paragraph eId="art_14/para">
+<content>
+<p>L’AIEP approuve l’exposé des motifs consigné par écrit.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_15">
+<num>
+<b>Art. 15</b>
+</num>
+<heading>Décision par voie de circulation</heading>
+<paragraph eId="art_15/para_1">
+<num>1</num>
+<content>
+<p> Les décisions d’entrée en matière, l’approbation des exposés des motifs et les décisions concernant les délibérations à huis clos selon l’art. 11, al. 1, peuvent être arrêtées par voie de circulation lorsque le président en décide ainsi.</p>
+</content>
+</paragraph>
+<paragraph eId="art_15/para_2">
+<num>2</num>
+<content>
+<p> A la demande d’un membre ou du secrétariat, les affaires sont délibérées et décidées dans le cadre d’une séance ordinaire.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_16">
+<num>
+<b>Art. 16</b>
+</num>
+<heading>Langue des décisions</heading>
+<paragraph eId="art_16/para">
+<content>
+<p>Les décisions sont rédigées dans la langue nationale dans laquelle l’émission incriminée a été diffusée ou dans la principale langue nationale de la région couverte par le diffuseur.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_17">
+<num>
+<b>Art. 17</b>
+</num>
+<heading>Réclamation téméraire</heading>
+<paragraph eId="art_17/para">
+<content>
+<p>Les dispositions relatives à la procédure de plainte, figurant aux art. 8, 9 et 12 à 16, sont applicables par analogie si un organe de médiation ou un diffuseur demande à l’AIEP, au terme de la procédure de médiation, de mettre les frais de procédure à la charge de l’auteur d’une réclamation téméraire (art. 93, al. 5, LRTV).</p>
+</content>
+</paragraph>
+</article>
+</section>
+<section eId="sec_3">
+<num>Section 3</num>
+<heading>Organes de médiation des régions linguistiques</heading>
+<article eId="art_18">
+<num>
+<b>Art. 18</b>
+</num>
+<heading>Nomination des organes de médiation</heading>
+<paragraph eId="art_18/para_1">
+<num>1</num>
+<content>
+<p> L’AIEP désigne un comité chargé de préparer la nomination des organes de médiation des trois régions linguistiques et de faire des propositions quant à la désignation des membres de ces organes, conformément à l’art. 91, al. 1, LRTV.</p>
+</content>
+</paragraph>
+<paragraph eId="art_18/para_2">
+<num>2</num>
+<content>
+<p> Les organes de médiation sont en règle générale nommés par l’AIEP pour une période de quatre ans. Leur mandat peut être renouvelé. Lorsqu’un poste se libère, il est repourvu pour la période restante jusqu’à l’échéance du mandat.</p>
+</content>
+</paragraph>
+<paragraph eId="art_18/para_3">
+<num>3</num>
+<content>
+<p> La validité des votes et de la prise de décisions est déterminée conformément à l’art. 12, al. 1, du présent règlement.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_19">
+<num>
+<b>Art. 19</b>
+</num>
+<heading>Tâches</heading>
+<paragraph eId="art_19/para_1">
+<num>1</num>
+<content>
+<p> Les organes de médiation traitent les procédures de réclamation au sens des art. 92 et 93 LRTV.</p>
+</content>
+</paragraph>
+<paragraph eId="art_19/para_2">
+<num>2</num>
+<content>
+<p> Ils remettent un rapport d’activité annuel à l’AIEP.</p>
+</content>
+</paragraph>
+<paragraph eId="art_19/para_3">
+<num>3</num>
+<content>
+<p> Ils informent le public de leur fonction et de leurs activités.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_20">
+<num>
+<b>Art. 20</b>
+</num>
+<heading>Surveillance</heading>
+<paragraph eId="art_20/para_1">
+<num>1</num>
+<content>
+<p> L’AIEP exerce la haute surveillance sur les organes de médiation d’office et sur plainte.</p>
+</content>
+</paragraph>
+<paragraph eId="art_20/para_2">
+<num>2</num>
+<content>
+<p> L’AIEP examine les dénonciations formulées contre les organes de médiation conformément à l’art. 71 PA<authorialNote>
+    <p>
+        <ref href="https://fedlex.data.admin.ch/eli/cc/1969/737_757_755"
+            xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+            xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RS <b>172.021</b>
+        </ref>
+    </p>
+</authorialNote>.
+</p>
+</content>
+</paragraph>
+<paragraph eId="art_20/para_3">
+<num>3</num>
+<content>
+<p> Les règles de procédure prévues aux art. 8, 9 et 12 à 16 sont applicables par analogie.</p>
+</content>
+</paragraph>
+</article>
+</section>
+<section eId="sec_4">
+<num>Section 4</num>
+<heading>Information</heading>
+<article eId="art_21">
+<num>
+<b>Art. 21</b>
+</num>
+<heading>Principe d’information</heading>
+<paragraph eId="art_21/para_1">
+<num>1</num>
+<content>
+<p> L’AIEP informe le public de sa fonction et de ses activités.</p>
+</content>
+</paragraph>
+<paragraph eId="art_21/para_2">
+<num>2</num>
+<content>
+<p> Elle publie ses décisions intégralement, sous forme anonyme, dans la banque de données de son site Internet. L’accès en est gratuit.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_22">
+<num>
+<b>Art. 22</b>
+</num>
+<heading>Rapport annuel</heading>
+<paragraph eId="art_22/para_1">
+<num>1</num>
+<content>
+<p> L’AIEP adopte le rapport annuel à l’intention du Conseil fédéral.</p>
+</content>
+</paragraph>
+<paragraph eId="art_22/para_2">
+<num>2</num>
+<content>
+<p> Une fois que le Conseil fédéral en a pris connaissance, le rapport annuel est publié dans les quatre langues nationales.</p>
+</content>
+</paragraph>
+</article>
+</section>
+<section eId="sec_5">
+<num>Section 5</num>
+<heading>Dispositions finales</heading>
+<article eId="art_23">
+<num>
+<b>Art. 23</b>
+</num>
+<heading>Abrogationdu droit en vigueur</heading>
+<paragraph eId="art_23/para">
+<content>
+<p>Le règlement du 5 novembre 1993 de l’autorité indépendante d’examen des plaintes en matière de radio-télévision<authorialNote>
+<p> [    <ref href="https://fedlex.data.admin.ch/eli/oc/1994/3085_3085_3085"
+        xmlns:data="urn:com:c-moria:legi4ch:xslt:data"
+        xmlns:tmp="urn:com:c-moria:legi4ch:xslt:temp">RO <b>1994</b> 3085</ref>]
+</p>
+</authorialNote> est abrogé.</p>
+</content>
+</paragraph>
+</article>
+<article eId="art_24">
+<num>
+<b>Art. 24</b>
+</num>
+<heading>Entrée en vigueur</heading>
+<paragraph eId="art_24/para">
+<content>
+<p>Le présent règlement entre en vigueur le 1<sup>er</sup> avril 2007.</p>
+</content>
+</paragraph>
+</article>
+</section>
+</body>
+</act>
+</akomaNtoso>
