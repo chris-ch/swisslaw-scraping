@@ -5,7 +5,7 @@
 """
 import logging
 import sys
-from time
+import time
 from typing import List
 
 from chromadb import EmbeddingFunction
