@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "dotjoshjohnson.xml"
+        "dotjoshjohnson.xml",
+        "tamasfe.even-better-toml"
     ]
 }

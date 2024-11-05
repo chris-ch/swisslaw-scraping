@@ -22,6 +22,9 @@ selenium = "^4.25.0"
 playwright = "^1.47.0"
 beautifulsoup4 = "^4.12.3"
 requests = "^2.32.3"
+chromadb = "^0.5.16"
+langchain = "^0.3.6"
+mistralai = "^1.1.0"
 
 
 [build-system]
@@ -32,5 +35,6 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.scripts]
 scrape-links = "scripts.scrape_links:main"
 load-laws = "scripts.load_laws:main"
-prepare-document = "scripts.prepare_document:main"
+populate-db = "scripts.populate_vector_db:main"
+init-vector-db = "scripts.init_vector_db:main"
 playwright = "playwright.__main__:main"
