@@ -1,3 +1,4 @@
+import argparse
 import logging
 import json
 import asyncio
@@ -102,8 +103,17 @@ async def task(links_file: str, output_dir: Path):
 
 def main():
     setup_logging_levels()
-    output_dir = Path("output/downloads").absolute()
-    links_file = "output/links.json"
+
+    usage = """Walks through result files obtained after running scrape-links and saves corresponding links."""
+    parser = argparse.ArgumentParser(description=usage,
+                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter
+                                     )
+    
+    parser.add_argument("output_dir", type=str, help="Output directory")
+
+    args = parser.parse_args()
+    output_dir = Path(args.output_dir).absolute()
+    links_file = f"{args.output_dir}/links.json"
     logging.info("saving downloaded xml files under %s", output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     asyncio.run(task(links_file, output_dir))

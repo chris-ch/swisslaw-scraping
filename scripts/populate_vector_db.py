@@ -1,12 +1,8 @@
 import argparse
-import asyncio
 import hashlib
 import logging
 import os
-import random
-import sys
 from typing import Dict, List, Optional
-import uuid
 import xml.etree.ElementTree as ET
 
 import chromadb
@@ -117,17 +113,6 @@ def list_all_files(root_dir: str)-> List[str]:
     return all_files
 
 
-def pick_random_files(root_dir: str, num_files: int=10) -> List[str]:
-    all_files = list_all_files(root_dir)
-    # If there are fewer than `num_files`, return all files
-    if len(all_files) <= num_files:
-        return all_files
-
-    # Randomly select `num_files` from all files
-    random_files = random.sample(all_files, num_files)
-    return random_files
-
-
 def format_chunks(chunks: List[Dict[str, str]]) -> List[str]:
     formatted_chunks = []
     
@@ -164,6 +149,7 @@ def main():
                         action="store", type=str, dest="embedding_model", help="Embedding model")
     parser.add_argument('-n', '--skip-embedding', action='store_true', help='Skipping embedding phase, only displays chunks')
     parser.add_argument('-b', '--batch-size', type=int, help='Batch size for reducing requests rate', default=1)
+    parser.add_argument("chromadb_path", type=str, help="Chroma DB Path")
     parser.add_argument("documents_folder", type=str, help="Documents folder")
 
     args = parser.parse_args()
@@ -178,7 +164,7 @@ def main():
 
     # Vector database/Search index
     db_client = chromadb.PersistentClient(
-        path="output/chroma",
+        path=args.chromadb_path,
         settings=chromadb.config.Settings(anonymized_telemetry=False),
         tenant=chromadb.config.DEFAULT_TENANT,
         database=chromadb.config.DEFAULT_DATABASE,
@@ -188,7 +174,6 @@ def main():
 
     logging.info("processing documents from %s", args.documents_folder)
 
-    #files= pick_random_files("output/downloads", 10):
     documents = sorted(list_all_files(args.documents_folder))
     count_vectors = 0
     for count, document in enumerate(documents):

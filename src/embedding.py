@@ -51,7 +51,7 @@ class MistralEmbeddingFunction(EmbeddingFunction):
             except SDKError as e:
                 if e.status_code == 429:
                     wait_time = backoff_factor * (2 ** attempt)
-                    print(f"Rate limit exceeded. Retrying in {wait_time} seconds...")
+                    logging.info("Rate limit exceeded. Retrying in %s seconds...", wait_time)
                     time.sleep(wait_time)
                 else:
                     raise  # Re-raise the exception if it's not a rate limit error

@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "dotjoshjohnson.xml",
-        "tamasfe.even-better-toml"
+        "tamasfe.even-better-toml",
+        "ms-python.python"
     ]
 }

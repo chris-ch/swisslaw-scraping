@@ -1,3 +1,4 @@
+import argparse
 import logging
 import json
 import os
@@ -57,10 +58,7 @@ def save_to_file(file_path, data):
         json.dump(data, f, indent=3)
 
 
-async def task(output_dir: str):
-    setup_logging_levels()
-    language = 'fr'
-
+async def task(output_dir: str, language: str):
     # Load the links from files if they exist
     file_to_be_processed = os.path.sep.join([output_dir, TO_BE_PROCESSED_FILE])
     file_visited = os.path.sep.join([output_dir, VISITED_LINKS_FILE])
@@ -101,6 +99,18 @@ async def task(output_dir: str):
 
 
 def main():
-    output_dir = "output"
-    os.makedirs(output_dir, exist_ok=True)
-    asyncio.run(task(output_dir))
+
+    setup_logging_levels()
+
+    usage = """Scraping links from FedLex pointing to law texts."""
+    parser = argparse.ArgumentParser(description=usage,
+                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter
+                                     )
+    
+    parser.add_argument("output_dir", type=str, help="Output directory")
+    parser.add_argument("language", type=str, help="One of (de, fr, it)")
+
+    args = parser.parse_args()
+
+    os.makedirs(args.output_dir, exist_ok=True)
+    asyncio.run(task((args.output_dir, args.language)))
