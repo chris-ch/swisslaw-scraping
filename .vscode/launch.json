@@ -2,11 +2,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run prepare-document",
+            "name": "Run generate-documents",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/scripts/prepare_document.py",
-            "args": [],
+            "program": "${workspaceFolder}/scripts/generate_documents.py",
+            "args": ["output/downloads/eli/cc/27/317_321_377", "output"],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "env": {

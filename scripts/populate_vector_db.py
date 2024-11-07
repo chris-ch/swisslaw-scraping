@@ -203,6 +203,7 @@ def main():
             continue
 
         doc_ids = [hashlib.md5(paragraph.encode()).hexdigest() for paragraph in paragraphs]
+        
         existing_doc_data = vectordb.get(
                 ids=doc_ids,
                 include=["uris"]
