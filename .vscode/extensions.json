@@ -2,6 +2,7 @@
     "recommendations": [
         "dotjoshjohnson.xml",
         "tamasfe.even-better-toml",
-        "ms-python.python"
+        "ms-python.python",
+        "mkhl.direnv"
     ]
 }

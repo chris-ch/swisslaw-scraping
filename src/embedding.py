@@ -14,7 +14,7 @@ from chromadb.api.types import Document, Embedding
 from mistralai import EmbeddingResponse, Mistral, SDKError
 
 
-MAX_BATCH_SIZE = 41666  # ChromaDB limit
+MAX_NUMBER_DOCS = 41666  # ChromaDB limit
 
 
 class MistralEmbeddingFunction(EmbeddingFunction):
@@ -44,6 +44,7 @@ class MistralEmbeddingFunction(EmbeddingFunction):
 
         for attempt in range(retries):
             try:
+                logging.info("processing inputs: %s", [len(b) for b in batch])
                 resp = self._client.embeddings.create(model=self._model, inputs=batch)
                 if resp is None:
                     raise RuntimeError("Failed to create embedding")
@@ -62,7 +63,7 @@ class MistralEmbeddingFunction(EmbeddingFunction):
 class EmbeddingModel:
     """_summary_
     """
-    def __init__(self, model_deployment: str, api_key: str, batch_size: int = 1):
+    def __init__(self, model_deployment: str, api_key: str, batch_size: int=100):
         """Use API calls to embed content"""
         self.embedding_fun = MistralEmbeddingFunction(
                 api_key=api_key,
@@ -80,18 +81,16 @@ class EmbeddingModel:
             _type_: _description_
         """
 
-        if len(docs) > MAX_BATCH_SIZE:
-            msg = f"Batch size {len(docs)} exceeding maximum of {
-                MAX_BATCH_SIZE}, populate using smaller datasets."
-            logging.error(msg)
-            raise RuntimeError(msg)
-
-
         count_batches = len(docs) // self.batch_size
         if len(docs) % self.batch_size != 0:
             count_batches += 1
 
-        logging.info("processing %s batches", count_batches)
+        if False and len(docs) > MAX_NUMBER_DOCS:
+            msg = f"resulting batch size {len(docs)} exceeding maximum of {
+                MAX_NUMBER_DOCS}, populate using smaller datasets."
+            logging.error(msg)
+            raise RuntimeError(msg)
+
         embeddings = []
         for batch_idx in range(count_batches):
             idx_start = batch_idx * self.batch_size
