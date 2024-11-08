@@ -2,11 +2,25 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run generate-documents",
+            "name": "generate-documents-small",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/scripts/generate_documents.py",
             "args": ["output/downloads/eli/cc/27/317_321_377", "output"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "envFile": "${workspaceFolder}/.env",
+            "justMyCode": true
+        },
+        {
+            "name": "populate-db",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/populate_vector_db.py",
+            "args": ["output/chromadb", "output/law_articles.jsonl.gz"],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "env": {

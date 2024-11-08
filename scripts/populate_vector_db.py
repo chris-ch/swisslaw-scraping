@@ -22,64 +22,7 @@ def load_jsonl(file_path: str) -> List[Dict[str, str]]:
     return data
 
 
-def main():
-
-    setup_logging_levels()
-    logging.getLogger("httpx").setLevel(logging.WARNING)
-
-    usage = """Setting up Chroma Vector Database.
-    Requires environment variable MISTRAL_API_KEY.
-    """
-    parser = argparse.ArgumentParser(description=usage,
-                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter
-                                     )
-    
-    parser.add_argument("-m", "--embedding-model", required=False, default="mistral-embed",
-                        action="store", type=str, dest="embedding_model", help="Embedding model")
-    parser.add_argument('-b', '--batch-size', type=int, help='Batch size for reducing requests rate', default=100)
-    parser.add_argument("chromadb_path", type=str, help="Chroma DB Path")
-    parser.add_argument("documents_file", type=str, help="Documents file as .jsonl (may be gzipped)")
-
-    args = parser.parse_args()
-
-    embedding_api_key = os.environ.get("MISTRAL_API_KEY")
-
-    embedding_model = EmbeddingModel(
-        model_deployment=args.embedding_model,
-        api_key=embedding_api_key,
-        batch_size=args.batch_size
-    )
-
-    # Vector database/Search index
-    db_client = chromadb.PersistentClient(
-        path=args.chromadb_path,
-        settings=chromadb.config.Settings(anonymized_telemetry=False),
-        tenant=chromadb.config.DEFAULT_TENANT,
-        database=chromadb.config.DEFAULT_DATABASE,
-    )
-    
-    vectordb = db_client.get_or_create_collection(name="swiss_legal_articles")
-
-    logging.info("processing documents from %s", args.documents_file)
-
-    documents = load_jsonl(args.documents_file)
-
-    logging.info("loaded %s documents", len(documents))
-
-    doc_ids = [item["uid"] for item in documents if "uid" in item]
-
-    lookup_ids_batch_size = 10000
-    existing_doc_ids = []
-
-    for i in range(0, len(doc_ids), lookup_ids_batch_size):
-        batch = doc_ids[i:i + lookup_ids_batch_size]
-        # Call vectordb.get() for each batch and collect results
-        result = vectordb.get(ids=batch, include=["uris"])
-        existing_doc_ids.extend(result['ids'])  # Append each batch's results to the final list
-
-    logging.info("gathered %s existing ids from database", len(existing_doc_ids))
-
-    new_documents = [d for d in documents if d["uid"] not in existing_doc_ids]
+def embed_and_store(embedding_model: EmbeddingModel, vectordb: chromadb.Collection, new_documents: List[str]) -> None:
     new_documents_text = [item["text"] for item in new_documents]
     new_documents_uid = [item["uid"] for item in new_documents]
     new_vectors = embedding_model.embed(new_documents_text)
@@ -99,6 +42,71 @@ def main():
         ids=new_documents_uid,
         metadatas=doc_metadata,
     )
+
+
+def batch_process_documents(embedding_model, vectordb, new_documents, batch_size=1000):
+    for i in range(0, len(new_documents), batch_size):
+        batch = new_documents[i:i + batch_size]
+        embed_and_store(embedding_model, vectordb, batch)
+        logging.info("stored %s elements", len(batch))
+
+
+def main():
+
+    setup_logging_levels()
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+
+    usage = """Setting up Chroma Vector Database.
+    Requires environment variable MISTRAL_API_KEY.
+    """
+    parser = argparse.ArgumentParser(description=usage,
+                                     formatter_class=argparse.ArgumentDefaultsHelpFormatter
+                                     )
+    
+    parser.add_argument("-m", "--embedding-model", required=False, default="mistral-embed",
+                        action="store", type=str, dest="embedding_model", help="Embedding model")
+    parser.add_argument('-b', '--batch-size', type=int, help='Batch size for reducing requests rate', default=20)
+    parser.add_argument("chromadb_path", type=str, help="Chroma DB Path")
+    parser.add_argument("documents_file", type=str, help="Documents file as .jsonl (may be gzipped)")
+
+    args = parser.parse_args()
+
+    embedding_api_key = os.environ.get("MISTRAL_API_KEY")
+
+    db_client = chromadb.PersistentClient(
+        path=args.chromadb_path,
+        settings=chromadb.config.Settings(anonymized_telemetry=False),
+        tenant=chromadb.config.DEFAULT_TENANT,
+        database=chromadb.config.DEFAULT_DATABASE,
+    )
+    
+    embedding_model = EmbeddingModel(
+        model_deployment=args.embedding_model,
+        api_key=embedding_api_key,
+        batch_size=args.batch_size
+    )
+
+    vectordb = db_client.get_or_create_collection(name="swiss_legal_articles")
+    documents = load_jsonl(args.documents_file)
+    doc_ids = [item["uid"] for item in documents if "uid" in item]
+
+    logging.info("processing documents from %s", args.documents_file)
+    logging.info("loaded %s documents", len(documents))
+    logging.info("found %s uids", len(doc_ids))
+
+    lookup_ids_batch_size = 10000
+    existing_doc_ids = []
+
+    for i in range(0, len(doc_ids), lookup_ids_batch_size):
+        batch = doc_ids[i:i + lookup_ids_batch_size]
+        result = vectordb.get(ids=batch, include=["uris"])
+        existing_doc_ids.extend(result['ids'])  # Append each batch's results to the final list
+
+    logging.info("gathered %s existing ids from database", len(existing_doc_ids))
+
+    new_documents = [d for d in documents if d["uid"] not in existing_doc_ids]
+
+    batch_process_documents(embedding_model, vectordb, new_documents, batch_size=1000)
 
     logging.warning("processed %s files", len(documents))
 
