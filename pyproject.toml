@@ -33,9 +33,11 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.poetry.scripts]
+playwright = "playwright.__main__:main"
 scrape-links = "scripts.scrape_links:main"
 load-laws = "scripts.load_laws:main"
 generate-documents = "scripts.generate_documents:main"
 populate-db = "scripts.populate_vector_db:main"
 search-db = "scripts.search_vector_db:main"
-playwright = "playwright.__main__:main"
+export-db = "scripts.export_vector_db:main"
+import-db = "scripts.import_vector_db:main"

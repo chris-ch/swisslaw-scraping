@@ -20,7 +20,6 @@ def main():
     
     parser.add_argument("-m", "--embedding-model", required=False, default="mistral-embed",
                         action="store", type=str, dest="embedding_model", help="Embedding model")
-    parser.add_argument('-b', '--batch-size', type=int, help='Batch size for reducing requests rate', default=1)
     parser.add_argument("chromadb_path", type=str, help="Chroma DB Path")
     parser.add_argument("request", type=str, help="User request")
 
@@ -31,7 +30,7 @@ def main():
     embedding_model = EmbeddingModel(
         model_deployment=args.embedding_model,
         api_key=embedding_api_key,
-        batch_size=args.batch_size
+        batch_size=1
     )
 
     # Vector database/Search index
@@ -42,7 +41,7 @@ def main():
         database=chromadb.config.DEFAULT_DATABASE,
     )
     
-    vectordb = db_client.get_or_create_collection(name="swiss_legal_articles")
+    vectordb = db_client.get_collection(name="swiss_legal_articles")
     
     embedding_response = embedding_model.embed([args.request])
     if len(embedding_response) != 1:
@@ -52,8 +51,10 @@ def main():
 
     print(f"request vector size: {len(request_vector)}")
     
-    matches = vectordb.query(request_vector, n_results=5)
-    print(matches)
+    matches = vectordb.query(request_vector, n_results=10)
+    for doc in matches['documents'][0]:
+        print(doc)
+        print("----------------------------")
 
 
 if __name__ == "__main__":
