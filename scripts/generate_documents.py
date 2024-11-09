@@ -33,25 +33,40 @@ def get_full_text(element: ET.Element) -> str:
     return ' '.join(texts)
 
 
-def find_paragraphs_with_parents(root: ET.Element, ns):
-    # Function to find the full path of parents for each matching element
-    def get_parent_chain(element):
-        path = []
-        while element is not None:
-            path.append(element)
-            element = element_map.get(element)  # Move to the parent
-        return path[::-1]  # Reverse to get root-to-child order
+# Function to find the full path of parents for each matching element
+def get_parent_chain(element: ET.Element, element_map: Dict[ET.Element, ET.Element]) -> List[ET.Element]:
+    path = []
+    while element is not None:
+        path.append(element)
+        element = element_map.get(element)  # Move to the parent
+    return path[::-1]  # Reverse to get root-to-child order
+
+
+def find_articles_with_parents(root: ET.Element, ns):
 
     # Build a map of elements to their parents
     element_map = {child: parent for parent in root.iter() for child in parent}
-    paragraphs_with_parents = []
+    articles_with_parents = []
 
-    # Find all `akn:paragraph` elements and retrieve their parent chain
-    for paragraph in root.findall(".//akn:paragraph", ns):
-        parent_chain = get_parent_chain(paragraph)
-        paragraphs_with_parents.append((paragraph, parent_chain))
+    # Find all `akn:article` elements and retrieve their parent chain
+    for article in root.findall(".//akn:article", ns):
+        parent_chain = get_parent_chain(article, element_map)
+        articles_with_parents.append((article, parent_chain))
     
-    return paragraphs_with_parents
+    return articles_with_parents
+
+
+def find_first_level_with_parents(root: ET.Element, ns):
+    # Build a map of elements to their parents
+    element_map = {child: parent for parent in root.iter() for child in parent}
+    articles_with_parents = []
+
+    # Find all `akn:article` elements and retrieve their parent chain
+    for article in root.findall("./akn:level", ns):
+        parent_chain = get_parent_chain(article, element_map)
+        articles_with_parents.append((article, parent_chain))
+    
+    return articles_with_parents
 
 
 def single_line(text):
@@ -59,7 +74,7 @@ def single_line(text):
     return ' '.join(text.replace('\n', ' ').split())
 
 
-def load_paragraphs(document_path: str) -> List[Dict[str, str]]:
+def load_articles(document_path: str) -> List[Dict[str, str]]:
     # Load the XML document
     try:
         tree = ET.parse(document_path)
@@ -90,39 +105,53 @@ def load_paragraphs(document_path: str) -> List[Dict[str, str]]:
 
     logging.info("document title: %s", doc_title)
 
-    def extract_paragraphs(root_element: Optional[ET.Element], context: Dict[str, str]) -> List[Dict[str, str]]:
-        paragraphs = []
-        if root_element is None:
-            logging.info("empty element found for context : '%s'", context)
-            return paragraphs
-
-        # Append paragraph text with current context
-        for para, parent_chain in find_paragraphs_with_parents(root_element, ns):
-            para_text_element = para.find("akn:content", ns)
-            para_text = get_full_text(para_text_element)
-            para_num = get_full_text(para.find("akn:num", ns)) or ""
+    def extract_items(items_with_parents) -> List[Dict[str, str]]:
+        items = []
+        # Append item text with current context
+        for item, parent_chain in items_with_parents:
+            item_text = get_full_text(item)
+            item_num = get_full_text(item.find("akn:num", ns)) or ""
             hierarchy = [f"{get_full_text(p.find("akn:num", ns))} {get_full_text(p.find("akn:heading", ns))}" for p in parent_chain if p.tag != "body"]
             hierarchy_text = single_line(" / ".join(hierarchy))
 
-            paragraph_with_context = {
+            item_with_context = {
                 "doc_title": doc_title,
                 "doc_date": dates["document"],
                 "entry_in_force": dates["entry_in_force"],
                 "applicability": dates["applicability"],
                 "hierarchy": hierarchy_text,
-                "paragraph_number": para_num,
-                "paragraph_text": para_text
+                "article_number": item_num,
+                "article_text": item_text
             }
-            if paragraph_with_context["paragraph_text"]:
-                paragraphs.append(paragraph_with_context)
+            if item_with_context["article_text"]:
+                items.append(item_with_context)
 
-        return paragraphs
+        return items
+    
+    body = root.find("akn:act/akn:body", ns)
+    if body is None:
+        return []
     
     # Initialize extraction with root body context, handle articles directly within the body
-    extracted = extract_paragraphs(root.find("akn:act/akn:body", ns), {})
-    if extracted is None:
-        extracted = []
-    logging.info("%s paragraphs extracted from %s", len(extracted), document_path)
+    articles_with_parents = find_articles_with_parents(body, ns)
+    extracted = extract_items(articles_with_parents)
+    if len(extracted) == 0:
+        # try splitting using 1st level
+        first_level_with_parents = find_first_level_with_parents(body, ns)
+        extracted = extract_items(first_level_with_parents)
+        if len(extracted) == 0:
+            extracted = [{
+                    "doc_title": doc_title,
+                    "doc_date": dates["document"],
+                    "entry_in_force": dates["entry_in_force"],
+                    "applicability": dates["applicability"],
+                    "hierarchy": "N/A",
+                    "article_number": "N/A",
+                    "article_text": get_full_text(root)
+                }
+            ]
+    
+    logging.info("%s articles extracted from %s", len(extracted), document_path)
     return extracted
 
 
@@ -141,12 +170,12 @@ def format_chunks(chunks: List[Dict[str, str]]) -> List[str]:
     formatted_chunks = []
     
     for chunk in chunks:
-        # Format each chunk with available metadata and paragraph text
+        # Format each chunk with available metadata and article text
         formatted_chunk = (
             f"Title: {chunk['doc_title']}\n"
             f"Hierarchy: {chunk['hierarchy'] or 'N/A'}\n"
-            f"Paragraph Number: {chunk['paragraph_number'] or 'N/A'}\n"
-            f"Paragraph Text: {chunk['paragraph_text']}\n"
+            f"Article Number: {chunk['article_number'] or 'N/A'}\n"
+            f"Article Text: {chunk['article_text']}\n"
         )
         
         formatted_chunks.append(formatted_chunk.strip())  # Remove any trailing whitespace
@@ -180,28 +209,28 @@ def main():
 
             logging.info(f"creating documents for {document}")
 
-            structured_paragraphs = load_paragraphs(document)
-            paragraphs = format_chunks(structured_paragraphs)
-            if len(paragraphs) == 0:
+            structured_articles = load_articles(document)
+            articles = format_chunks(structured_articles)
+            if len(articles) == 0:
                 logging.warning("unable to extract data from document: %s", document)
                 continue
 
             doc_meta = {
                 "doc_url": document[len(args.downloads_folder):],
-                "doc_date": structured_paragraphs[-1]["doc_date"],
-                "entry_in_force": structured_paragraphs[-1]["entry_in_force"],
-                "applicability": structured_paragraphs[-1]["applicability"],
+                "doc_date": structured_articles[-1]["doc_date"],
+                "entry_in_force": structured_articles[-1]["entry_in_force"],
+                "applicability": structured_articles[-1]["applicability"],
             }
 
-            lengths = [len(p) for p in paragraphs]
-            logging.info(f"processing {len(paragraphs)} paragraphs, for a total of {sum(lengths)} characters (max {max(lengths)}) ")
+            lengths = [len(p) for p in articles]
+            logging.info(f"processing {len(articles)} articles, for a total of {sum(lengths)} characters (max {max(lengths)}) ")
 
-            doc_ids = [hashlib.md5(paragraph.encode()).hexdigest() for paragraph in paragraphs]
+            doc_ids = [hashlib.md5(article.encode()).hexdigest() for article in articles]
 
-            for count_para, paragraph in enumerate(paragraphs):
+            for count_para, article in enumerate(articles):
                 count_vectors += 1
                 doc_data = doc_meta.copy()
-                doc_data.update({"text": paragraph, "uid": doc_ids[count_para]})
+                doc_data.update({"text": article, "uid": doc_ids[count_para]})
                 out_file.write(json.dumps(doc_data) + "\n")
 
         logging.warning("saved under %s: processed %s files out of %s (%s vectors)", os.path.abspath(output_file), count_doc + 1, len(documents), count_vectors)

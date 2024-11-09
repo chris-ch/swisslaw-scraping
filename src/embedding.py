@@ -40,6 +40,8 @@ class MistralEmbeddingFunction(EmbeddingFunction):
                     wait_time = backoff_factor * (2 ** attempt)
                     logging.info("rate limit exceeded. Retrying in %s seconds...", wait_time)
                     time.sleep(wait_time)
+                elif e.status_code == 400:
+                    raise ValueError(f"batch error with: {documents}", e)
                 else:
                     raise  # Re-raise the exception if it's not a rate limit error
             
