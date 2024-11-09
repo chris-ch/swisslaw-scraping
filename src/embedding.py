@@ -33,18 +33,20 @@ class MistralEmbeddingFunction(EmbeddingFunction):
         for attempt in range(retries):
             try:
                 resp = self._client.embeddings.create(model=self._model, inputs=documents)
-                if resp is None:
-                    raise RuntimeError("Failed to create embedding")
-                return [d.embedding for d in resp.data]
+                if resp is not None:
+                    return [d.embedding for d in resp.data]
             except SDKError as e:
                 if e.status_code == 429:
                     wait_time = backoff_factor * (2 ** attempt)
-                    logging.info("Rate limit exceeded. Retrying in %s seconds...", wait_time)
+                    logging.info("rate limit exceeded. Retrying in %s seconds...", wait_time)
                     time.sleep(wait_time)
                 else:
                     raise  # Re-raise the exception if it's not a rate limit error
+            
+            # resp is None
+            raise RuntimeError("failed to create embedding")
 
-        raise RuntimeError("Max retries exceeded. Failed to create embedding.")
+        raise RuntimeError("max retries exceeded. Failed to create embedding.")
 
 
 class EmbeddingModel:
@@ -77,7 +79,16 @@ class EmbeddingModel:
             idx_start = batch_idx * self.batch_size
             idx_end = (batch_idx + 1) * self.batch_size
             batch = docs[idx_start:idx_end]
-            embeddings += self.embedding_fun(batch)
+            try:
+                embeddings += self.embedding_fun(batch)
+            except SDKError as e:
+                if e.status_code == 400:
+                    logging.info("too many tokens in batch, retrying with half the set")
+                    embeddings += self.embedding_fun(batch[:len(batch) // 2])
+                    embeddings += self.embedding_fun(batch[len(batch) // 2:])
+                else:
+                    raise  # Re-raise the exception if it's not a rate limit error
+
             # Progress indicator
             progress = (batch_idx + 1) / count_batches
             bar_length = 30

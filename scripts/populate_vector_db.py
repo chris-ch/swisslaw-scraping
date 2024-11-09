@@ -26,8 +26,6 @@ def embed_and_store(embedding_model: EmbeddingModel, vectordb: chromadb.Collecti
     new_documents_text = [item["text"] for item in new_documents]
     new_documents_uid = [item["uid"] for item in new_documents]
     new_vectors = embedding_model.embed(new_documents_text)
-    
-    logging.info("adding %s vectors to DB", len(new_vectors))
     doc_metadata = [
         {
             "doc_url": document["doc_url"],
@@ -48,7 +46,7 @@ def batch_process_documents(embedding_model, vectordb, new_documents, batch_size
     for i in range(0, len(new_documents), batch_size):
         batch = new_documents[i:i + batch_size]
         embed_and_store(embedding_model, vectordb, batch)
-        logging.info("stored %s elements", len(batch))
+        logging.info("stored %s elements in db", len(batch))
 
 
 def main():
