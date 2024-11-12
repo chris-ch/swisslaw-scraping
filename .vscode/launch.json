@@ -16,11 +16,11 @@
             "justMyCode": true
         },
         {
-            "name": "populate-db",
+            "name": "export-db",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/scripts/populate_vector_db.py",
-            "args": ["output/chromadb", "output/law_articles.jsonl.gz"],
+            "program": "${workspaceFolder}/scripts/export_vector_db.py",
+            "args": ["output/chromadb"],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "env": {
@@ -30,11 +30,11 @@
             "justMyCode": true
         },
         {
-            "name": "export-db",
+            "name": "generate-vectors",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/scripts/export_vector_db.py",
-            "args": ["output/chromadb"],
+            "program": "${workspaceFolder}/scripts/generate_vectors.py",
+            "args": ["-b 1", "output/law_articles.jsonl.gz"],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
             "env": {

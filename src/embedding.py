@@ -40,9 +40,8 @@ class MistralEmbeddingFunction(EmbeddingFunction):
                     wait_time = backoff_factor * (2 ** attempt)
                     logging.info("rate limit exceeded. Retrying in %s seconds...", wait_time)
                     time.sleep(wait_time)
-                elif e.status_code == 400:
-                    raise ValueError(f"batch error with: {documents}", e)
                 else:
+                    logging.error("raising from embedding function", e)
                     raise  # Re-raise the exception if it's not a rate limit error
             
             # resp is None
@@ -85,9 +84,7 @@ class EmbeddingModel:
                 embeddings += self.embedding_fun(batch)
             except SDKError as e:
                 if e.status_code == 400:
-                    logging.info("too many tokens in batch, retrying with half the set")
-                    embeddings += self.embedding_fun(batch[:len(batch) // 2])
-                    embeddings += self.embedding_fun(batch[len(batch) // 2:])
+                    logging.error("batch processing error: skipping ...", e)
                 else:
                     raise  # Re-raise the exception if it's not a rate limit error
 

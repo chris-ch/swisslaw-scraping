@@ -59,14 +59,19 @@ def find_articles_with_parents(root: ET.Element, ns):
 def find_first_level_with_parents(root: ET.Element, ns):
     # Build a map of elements to their parents
     element_map = {child: parent for parent in root.iter() for child in parent}
-    articles_with_parents = []
+    levels_with_parents = []
 
-    # Find all `akn:article` elements and retrieve their parent chain
-    for article in root.findall("./akn:level", ns):
-        parent_chain = get_parent_chain(article, element_map)
-        articles_with_parents.append((article, parent_chain))
+    # Find all "level" elements
+    all_levels = root.findall(".//akn:level", ns)
+
+    # Filter to get only the "last level" elements (those with no child "level" elements)
+    last_levels = [level for level in all_levels if not level.findall(".//akn:level", ns)]
+
+    for level in last_levels:
+        parent_chain = get_parent_chain(level, element_map)
+        levels_with_parents.append((level, parent_chain))
     
-    return articles_with_parents
+    return levels_with_parents
 
 
 def single_line(text):

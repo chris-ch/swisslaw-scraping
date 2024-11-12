@@ -42,9 +42,9 @@ def embed(embedding_model: EmbeddingModel, documents: List[str]) -> None:
     return results
 
 
-def batch_process_documents(output_file, embedding_model, documents, batch_size=1000):
-    for i in range(0, len(documents), batch_size):
-        batch = documents[i:i + batch_size]
+def batch_process_documents(output_file, embedding_model, documents, write_batch_size=1):
+    for i in range(0, len(documents), write_batch_size):
+        batch = documents[i:i + write_batch_size]
         rows = embed(embedding_model, batch)
         with open(output_file, "a") as f:
             for row in rows:
@@ -104,7 +104,7 @@ def main():
     
     new_documents = [d for d in documents if d["uid"] not in stored_uids]
     logging.info("remaining %s documents", len(new_documents))
-    batch_process_documents(vectors_file, embedding_model, new_documents, batch_size=1000)
+    batch_process_documents(vectors_file, embedding_model, new_documents, write_batch_size=1)
 
     logging.warning("processed %s documents", len(new_documents))
 

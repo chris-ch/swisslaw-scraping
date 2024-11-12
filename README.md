@@ -1,6 +1,15 @@
 # swisslaw-scraping
 
+## Importing into DB
+```shell
+poetry run import-db output/chromadb "request"
+```
+
 ## Requests examples
+
+```shell
+poetry run search-db output/chromadb "request"
+```
 
 ```text
 "Diffamation publique,Injure publique,Outrage,Trouble à l'ordre public,Atteinte à la dignité: Conséquences juridiques et sanctions pénales pour injure publique, diffamation et trouble à l'ordre public dans le cadre d'un conflit de voisinage avec témoins. Éléments constitutifs de l'infraction d'outrage et d'atteinte à la dignité en cas d'insultes proférées en public."
