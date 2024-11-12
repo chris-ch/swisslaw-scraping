@@ -25,6 +25,7 @@ requests = "^2.32.3"
 chromadb = "^0.5.16"
 langchain = "^0.3.6"
 mistralai = "^1.1.0"
+scikit-learn = "^1.5.2"
 
 
 [build-system]
@@ -41,3 +42,4 @@ generate-vectors = "scripts.generate_vectors:main"
 import-db = "scripts.import_vector_db:main"
 search-db = "scripts.search_vector_db:main"
 export-db = "scripts.export_vector_db:main"
+search-tf-idf = "scripts.search_tf_idf:main"

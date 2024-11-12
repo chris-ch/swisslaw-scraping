@@ -42,6 +42,20 @@
             },
             "envFile": "${workspaceFolder}/.env",
             "justMyCode": true
+        },
+        {
+            "name": "search-tf-idf",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/scripts/search_tf_idf.py",
+            "args": ["output/law_articles.jsonl.gz", "résiliation de bail anticipé"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "envFile": "${workspaceFolder}/.env",
+            "justMyCode": true
         }
     ]
 }

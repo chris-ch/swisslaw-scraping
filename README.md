@@ -2,13 +2,17 @@
 
 ## Importing into DB
 ```shell
-poetry run import-db output/chromadb "request"
+poetry run import-db output/chromadb output/law_vectors.jsonl
 ```
 
 ## Requests examples
 
 ```shell
-poetry run search-db output/chromadb "request"
+poetry run search-db output/chromadb "résiliation de bail anticipé"
+```
+
+```shell
+poetry run search-tf-idf output/law_articles.jsonl.gz "résiliation de bail anticipé"
 ```
 
 ```text
